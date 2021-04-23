@@ -1,0 +1,17 @@
+.root {
+        -fx-background: #eee;
+}
+.button {
+        -fx-color: red;
+        -fx-font-weight: bold;
+        -fx-border-radius: 25px;
+        -fx-transition-duration: 0.9s;
+        -fx-text-fill: white;
+}
+.button:hover{
+        -fx-text-fill: red;
+        -fx-color: white;
+}
+.label {
+        -fx-background-color: #ddf;
+}

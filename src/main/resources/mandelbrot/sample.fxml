@@ -1,0 +1,26 @@
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.canvas.Canvas?>
+
+
+<?import javafx.scene.control.TextField?>
+
+<GridPane fx:controller="mandelbrot.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" stylesheets="/mandelbrot/main.css">
+    <Canvas fx:id="canvas" GridPane.columnIndex="0" GridPane.rowSpan="10" width="512" height="512"
+            onMouseDragged="#mouseMoves" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased"/>
+    <Button GridPane.columnIndex="1" GridPane.rowIndex="0" text="Clear" onAction="#clearCanvas" maxWidth="100"
+            maxHeight="35"/>
+    <Button GridPane.columnIndex="1" GridPane.rowIndex="3" text="Draw" onAction="#draw" maxWidth="100" maxHeight="35"/>
+    <TextField fx:id="zakresStart" GridPane.columnIndex="1" GridPane.rowIndex="4" maxWidth="100" maxHeight="35"
+               promptText="Podaj start" onAction="#wczytajZakresStart"/>
+    <TextField fx:id="zakresEnd" GridPane.columnIndex="1" GridPane.rowIndex="5" maxWidth="100" maxHeight="35"
+               promptText="Podaj end" onAction="#wczytajZakresEnd"/>
+    <TextField fx:id="parametrR" GridPane.columnIndex="1" GridPane.rowIndex="6" maxWidth="100" maxHeight="35"
+               promptText="Podaj r" onAction="#wczytajParametrR"/>
+    <TextField fx:id="szerokoscW" GridPane.columnIndex="1" GridPane.rowIndex="7" maxWidth="100" maxHeight="35"
+               promptText="Podaj w" onAction="#wczytajSzerokoscW"/>
+    <TextField fx:id="wysokoscH" GridPane.columnIndex="1" GridPane.rowIndex="8" maxWidth="100" maxHeight="35"
+               promptText="Podaj h" onAction="#wczytajWysokoscH"/>
+</GridPane>
