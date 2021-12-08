@@ -14,10 +14,15 @@ import javafx.scene.image.PixelWriter;
 public class Controller {
     public Canvas canvas;                                        // "Płótno" do rysowania
     private GraphicsContext gc;                                    // Kontekst graficzny do "płótna"
-    private double x1, y1, x2, y2;                                // Współrzędne ramki
+    private double x1;
+    private double y1;
+    private double x2;
+    private double y2;
     private Complex start = new Complex(-2.0, -1.25);
     private Complex end = new Complex(0.5, 1.25);
-    public int w = 512;
+
+    private int w = 512;
+
     public int h = 512;
     public int r = 4;
     public TextField zakresStart;
@@ -25,6 +30,10 @@ public class Controller {
     public TextField parametrR;
     public TextField szerokoscW;
     public TextField wysokoscH;
+
+    public int getW() {
+        return w;
+    }
 
     public void initialize() {
         gc = canvas.getGraphicsContext2D();
@@ -40,20 +49,20 @@ public class Controller {
     private void rect(GraphicsContext gc) {       // Metoda rysuje prostokat o rogach (x1, y1) i (x2, y2)
         double x = x1;
         double y = y1;
-        double w = x2 - x1;
-        double h = y2 - y1;
+        double weight = x2 - x1;
+        double height = y2 - y1;
 
-        if (w < 0) {
+        if (weight < 0) {
             x = x2;
-            w = -w;
+            weight = -weight;
         }
 
-        if (h < 0) {
+        if (height < 0) {
             y = y2;
-            h = -h;
+            height = -height;
         }
 
-        gc.strokeRect(x + 0.5, y + 0.5, w, h);
+        gc.strokeRect(x + 0.5, y + 0.5, weight, height);
     }
 
     public void mouseMoves(MouseEvent mouseEvent) {
@@ -74,7 +83,7 @@ public class Controller {
         y2 = y1;
     }
 
-    public void mouseReleased(MouseEvent mouseEvent) {
+    public void mouseReleased() {
         //odwracam wartości x1 i y1 jeśli rysuje prostokat od prawej strony lub od dołu
         if (x1 > x2) {
             double temp = x1;
@@ -91,7 +100,7 @@ public class Controller {
         zoom(); //skaluje odpowiednio żuka
     }
 
-    public void clearCanvas(ActionEvent actionEvent) {
+    public void clearCanvas() {
         clear(gc);
         start = new Complex(-2.0, -1.25);
         end = new Complex(0.5, 1.25);

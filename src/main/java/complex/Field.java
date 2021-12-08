@@ -2,16 +2,14 @@ package complex;
 
 
 public interface Field<T> {
-    // Poniższe metody modyfikują aktualny obiekt i zwracają "this".
-    // Taka konstrukcja pozwala na łańcuchowe łączenie operacji. Np.
     // a.mul(a).add(b) --> a = a^2 + b
-    T add(T x);          // dodawanie
+    T add(T x);
 
-    T sub(T x);          // odejmowanie
+    T sub(T x);
 
-    T mul(T x);          // mnożenie
+    T mul(T x);
 
-    T div(T x);          // dzielenie
+    T div(T x);
 
-    String toString(); // zwraca napis reprezentujący liczbę
+    String toString();
 }

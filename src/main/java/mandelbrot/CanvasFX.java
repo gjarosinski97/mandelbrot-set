@@ -6,12 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class CanvasFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Krótka historia o tym jak znienawidziłem żuki");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample.fxml")));
+        primaryStage.setTitle("Mandelbrot set");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
